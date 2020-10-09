@@ -35,8 +35,9 @@ export class Stats {
   updateStats(category, word, eventType) {
     if (!category || !word || !eventType) return false;
     let stats = this.stats;
-    let prev = +stats[category][word][eventType];
-    stats[category][word][eventType] = prev + 1;
+    const preparedWord = word.replaceAll(' ', '_');
+    let prev = +stats[category][preparedWord][eventType];
+    stats[category][preparedWord][eventType] = prev + 1;
     let update = JSON.stringify(stats);
     localStorage.setItem('englishStats', update);
     return true;
