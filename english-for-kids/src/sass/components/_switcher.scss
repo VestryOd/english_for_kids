@@ -46,17 +46,17 @@
 }
 
 .toggle__slider:after {
- content:'TRAIN';
- color: white;
- display: block;
- position: absolute;
- transform: translate(-50%,-50%);
- top: 50%;
- left: 65%;
- font-size: 22px;
- font-weight: 300;
- @extend %text_shadow;
- @extend %transition;
+  content:'TRAIN';
+  color: white;
+  display: block;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 65%;
+  font-size: 22px;
+  font-weight: 300;
+  @extend %text_shadow;
+  @extend %transition;
 }
 
 .toggle__input:checked + .toggle__slider:after {

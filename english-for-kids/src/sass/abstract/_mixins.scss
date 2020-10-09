@@ -6,14 +6,11 @@
 }
 
 
-@mixin columns ($width) {
+@mixin columns () {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     flex-grow: 1;
-    >* {
-        flex-basis: $width;
-    }
 }
 
 @mixin custom-scroll($background-color) {

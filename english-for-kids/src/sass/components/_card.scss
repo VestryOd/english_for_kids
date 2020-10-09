@@ -1,30 +1,8 @@
 .card {
   margin: 20px;
-  width: 300px;
-  height: 250px;
+  width: 288px;
+  height: 240px;
   perspective: 500px;
-  @include media-laptop {
-    flex-basis: 23%;
-    width: 288px;
-    height: 240px;
-  }
-  @include media-tablet-768 {
-    flex-basis: 29%;
-    width: 240px;
-    height: 190px;
-    margin: 15px;
-  }
-  @include media-mobile {
-    width: 156px;
-    height: 130px;
-    flex-basis: 43%;
-    margin: 10px;
-  }
-  @include media-mobilesmall {
-    flex-basis: 100%;
-    width: 300px;
-    height: 250px;
-  }
 }
 
 .card__inner {
