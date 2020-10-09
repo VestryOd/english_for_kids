@@ -24,7 +24,7 @@ export default function cardTrainClick(e) {
   }
 
   if (checkClass(e, 'card__front') || checkClass(e, 'card')) {
-    game.handleGuess(e.target.closest('.card'));
+    game?.handleGuess(e.target.closest('.card'));
   }
 
   function checkClass(e, className) {

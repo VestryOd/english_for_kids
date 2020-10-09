@@ -1,4 +1,3 @@
-// import speak from "../voiceSpeak";
 import { SpeechVoice } from "../Components/SpeechVoice";
 import { Stats } from "../Components/Stats";
 import data from "../../../cards-data";
@@ -29,12 +28,14 @@ export default function cardTrainClick(e) {
   }
 
   function sayText(target) {
-    let word = target.closest('.card').dataset.action;
-    if (voice.synth.speaking) {
-      voice.speakPause();
+    let word = target.closest('.card')?.dataset?.action;
+    if (word && voice.word !== word) {
+      if (voice.synth.speaking) {
+        voice.speakPause();
+      }
+      voice.sayWord(word);
+      sendStats(word, 'click');
     }
-    voice.sayWord(word);
-    sendStats(word, 'click')
   }
 
   function sendStats(word, type) {

@@ -23,6 +23,7 @@ export class Game {
     this.currentWord = '';
     this.stats = '';
     this.voice = voice;
+    this.wrongWord = null;
   }
 
   createInstance() {
@@ -89,7 +90,7 @@ export class Game {
 
   checkAnswer(target) {
     let done, type;
-    let targetWord = target.dataset.action;
+    let targetWord = target?.dataset?.action;
     if (this.currentWord === targetWord) {
       setTimeout(() => {
         done = this.rightGuess(target);
@@ -97,7 +98,7 @@ export class Game {
       }, 0);
     } else {
       setTimeout(() => {
-        done = this.wrongGuess();
+        done = this.wrongGuess(targetWord);
         type = 'wrong';
       }, 0);
     }
@@ -107,6 +108,7 @@ export class Game {
   rightGuess(target) {
     this.markRightAnswer(target);
     if (this.currenIndex < this.words.length - 1) {
+      this.wrongWord = null;
       player('assets/audio/success.mp3');
       this.currenIndex++;
       this.changeValue('total');
@@ -121,9 +123,12 @@ export class Game {
     return true;
   }
 
-  wrongGuess() {
-    this.changeValue('error');
-    player('assets/audio/error.mp3');
+  wrongGuess(targetWord) {
+    if (this.wrongWord !== targetWord) {
+      this.wrongWord = targetWord;
+      this.changeValue('error');
+      player('assets/audio/error.mp3');
+    }
     return true;
   }
 

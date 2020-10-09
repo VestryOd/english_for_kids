@@ -15,6 +15,7 @@ export class SpeechVoice {
   }
 
   prepareSpeech(word) {
+    this.word = word;
     this.synth.cancel();
     this.utterThis = new SpeechSynthesisUtterance(word);
     const voices = this.voices;
@@ -27,11 +28,16 @@ export class SpeechVoice {
     }
   }
 
+  clearWord() {
+    this.word = null;
+  }
+
   speak() {
     this.utterThis.pitch = this.pitch;
     this.utterThis.rate = this.rate;
     this.synth.speak(this.utterThis);
-    this.utterThis.onend = function () {
+    this.utterThis.onend = () => {
+      this.clearWord();
       return true;
     };
   }
