@@ -1,9 +1,7 @@
 import { GameResults } from "./GameResults";
 import { Stats } from "./Stats";
-// import { SpeechVoice } from "./SpeechVoice";
 import randomize from "../randomizeCardsOrder";
 import player from "../audioPlayer";
-// import speak from "../voiceSpeak";
 import handleRouts from "../hadlers/handleRouts";
 import data from "../../../cards-data";
 
